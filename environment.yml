@@ -1,0 +1,18 @@
+# Conda environment for TigerReader (Windows 10/11, macOS, Linux).
+#   conda env create -f environment.yml
+#   conda activate tigerreader
+#   pip install -e .            (run inside this folder; no extras needed in conda)
+name: tigerreader
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.14
+  - pip
+  - pyserial>=3.5
+  - pytest
+  # GUI from conda-forge, not pip: pip's PySide6 wheels can fail to load inside a conda environment on Windows
+  # ("DLL load failed while importing QtCore")
+  - pyside6>=6.10
+  - pyqtgraph>=0.13
+  - pytest-qt>=4
